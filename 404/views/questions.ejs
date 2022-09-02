@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/../css/stylesheet.css">
+    <title></title>
+</head>
+
+<%- include("header", {username: username}) %>
+
+<body>
+  
+<button> <a href ="/preguntas/new"> Publica tu pregunta</a>
+</button>
+
+
+
+
+
+
+<% if(list.length===0){ %>
+    <li >No hay preguntas </li>
+    <% }else{ %>
+        <li >Hay <%= list.length %>  preguntas</li>
+        <% list.forEach((question)=>{ %>
+<div class= "question-container"> 
+
+         
+                <div class ="questionText-container" style="float: left; width: 90%;">
+                    <a class ="questionTitle displayBlock" href="/preguntas/<%= question.id %>" > <%= question.title %></a>
+
+                    
+                    <a class= "questionBody displayBlock"> <%= question.body.substr(0, 150) %>
+                                                          <% if (question.body.length > 150) { %>
+                                                                ... 
+                                                             <% } %>  </a>
+
+
+                    <% if(question.tags !== null && question.tags.length > 0){ %>
+                        
+                        <% question.tags.forEach((tag)=>{ %>
+                        <a class="questionTags displayBlock" href="/preguntas/tags/<%= tag %>" >  <%= tag %> </a>
+                        
+                        <% }); %>
+                     <% } %>
+                    
+     
+                   
+                </div>
+                <div class = "questionProfile-Container" style="float: right; width: 10%;">
+                    
+                    <a class= "displayBlock" ><%= question.post_date %>  </a>
+                  
+                        <img src="/images/<%=question.image %>" >
+                     
+              
+                    <a class= "displayBlock" href="/profile.html"><%= question.user %>  </a>
+          
+                </div>  
+                <div>
+                    
+                </div>                             
+            
+</div>    
+
+            <% }); %>
+        <% } %>
+
+    
+    
+</body>
+
+</html>
+
+
+
+
+    

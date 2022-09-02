@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <title>Document</title>
+</head>
+<%- include("header", {username: username}) %>
+
+<body>
+    
+  <h1>Formular una pregunta </h1>
+  <form method="post" action="/preguntas/new">
+  <div class= "writeQuestion-container">
+        <div class= "writeTitle displayBlock">
+            <h3 >Título </h3>
+            <p >Sé especifico e imagina que estás haciendo la pregunta a otra persona</p>
+            <input type="text" class="writeQuestion " placeholder="¿Cual es tu pregunta sobre programación de aplicaciones web?" name="title" required>
+        </div>
+        <div class="writeBody displayBlock">
+            <h3  >Cuerpo</h3>
+            <p >Incluye toda la información que alguien necesitaría para responder tu pregunta </p>
+            <textarea name="body" id="" cols="100" rows="10" name="body" required></textarea>
+        </div>
+
+        <div class= "writeTags displayBlock">
+            <h3  >Etiquetas</h3>
+            <p >Añade hasta 5 etiquetas para describir sobre que trata tu pregunta</p>
+            <input type="text" class="writeQuestion "placeholder="Por ejemplo: #node#express" name="tags" >
+        </div>
+
+        <div> <input type="submit" value="Publica tu pregunta">
+        </div>
+  </div>
+
+</body>
+</html>

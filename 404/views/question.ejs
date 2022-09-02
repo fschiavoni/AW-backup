@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<%- include("header", {username: username}) %>
+
+<body>
+
+  
+  
+  <div class= "writeQuestion-container">
+    <h2><%= question.title %></h2>
+  
+    
+    <div id="views">
+        Vista 1 veces
+    </div>
+
+    <div id="votes">
+        <%= question.votes %> <a>👍</a><a>👎</a>
+    </div>
+
+    <div id="question-body">
+        <%= question.body %> 
+    </div>
+
+    <div class="displayBlock">
+        <a href="" class="questionTags">css</a>
+        <a href="" class="questionTags">html</a>
+    </div>
+
+    <div id="user-info">
+        <p style="font-size: 15px;">Formulada el <%= question.post_date %> por</p>
+        <img src="../../roberto.png" alt="" style="max-width: 50px; max-height: 50px;">
+        <p><a href=""><%= question.user %></a>
+        </p>
+    </div>
+
+    <h2><%= question.answers.length %> respuestas</h2>
+
+
+<% if(question.answers.length===0){ %>
+    <li >Tranquilo, ¡ya te responderán! </li>
+    <% }else{ %>
+        <% question.answers.forEach((answer)=>{ %>
+
+            <div id="votes">
+                <%= answer.votes %> Votos <a>👍</a><a>👎</a>
+            </div>
+        
+            <div id="question-body">
+               <%= answer.body %>
+            </div>
+        
+            <div id="user-info">
+                <p style="font-size: 15px;">Respondida el  <%= answer.post_date %> por</p>
+                <img src="../../emy.png" alt="" style="max-width: 50px; max-height: 50px;">
+                <p><a href=""> <%= answer.user %></a>
+                </p>
+            </div>
+
+            <% }); %>
+        <% } %>
+
+    
+    
+
+    <form action="<%= question.id %>" method="POST">
+
+    <h2>Tu respuesta</h2>
+
+    <textarea name="body" id="" cols="30" rows="10"></textarea>
+
+   <input type="submit" value="Publica tu respuesta">
+
+
+        </form>
+
+
+  </div>
+
+</body>
+</html>

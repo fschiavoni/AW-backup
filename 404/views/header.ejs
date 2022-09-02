@@ -1,0 +1,53 @@
+
+
+<header>
+
+    <div class="logo">
+        <h1>404</h1>
+    </div>    
+    
+<div class="navbar">
+    <a href="/preguntas">Preguntas</a>
+    <a href="/preguntas/noAnswered">Sin responder</a>
+    <a href="/preguntas/new">Publica tu pregunta</a>
+    <div class="search-container">
+        <form action="/preguntas/search" method="post">
+
+          <input class="input-field" type="text" placeholder="🔎Introduce aquí tu búsqueda..." name="texto" size="60">
+          <button type="submit" class="searchButton">Buscar</button>
+        </form>
+        
+      </div>
+
+        
+        <div class="user-info dropdown">
+
+            
+            
+            <img src="../../ojo.png" alt="" >
+            
+        <a href="#" class="user-info">
+        
+          <%= username%>
+            <img src="images/dropdown.png" alt="" style="margin-left: 5px; max-width: 15px; max-height:15px;">
+        </a>
+            
+
+            <div class="dropdown-content">
+              <img src="images/roberto.png" style="margin-left: 55px;">
+                <a href="#">Mi Perfil</a>
+                <a href="/logout">Cerrar sesión</a>
+              </div>
+            
+        </div>
+   
+  </div>
+    
+    
+    
+    </header>
+
+
+
+
+

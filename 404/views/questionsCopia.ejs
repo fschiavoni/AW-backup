@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <title></title>
+</head>
+
+<%- include("header", {username: username}) %>
+
+<body>
+  
+
+
+<!-- 
+<div class= "question-container"> 
+    <div class ="questionText-container">
+        <a class ="questionTitle displayBlock"> This is the title of the question Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta fugiat consectetur ad? Libero obcaecati a repellendus non, ad rem facilis atque ipsum veniam perferendis adipisci reiciendis porro voluptates sunt asperiores!</a>
+        <a class= "questionBody displayBlock"> This is the body of the question  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id pariatur aliquid animi dolor. Quo, eligendi repudiandae sunt dolores deleniti iure mollitia incidunt recusandae a dolore maiores asperiores repellendus saepe earum!</a>
+
+        <a class="questionTags displayBlock"> example of tag</a>
+
+    </div>
+    <div class = "questionProfile-Container">
+        <a class= "displayBlock" >Creation date </a>
+        <img class= "displayBlock" src="../../profile.png" alt="Users image">
+        <a class= "displayBlock" href="/profile.html">USER </a>
+    </div>
+
+</div> -->
+
+
+
+<% if(list.length===0){ %>
+    <li >No hay preguntas </li>
+    <% }else{ %>
+        <h1>Hay <%= list.length %>  preguntas</h1>
+        <% list.forEach((question)=>{ %>
+<div class= "question-container"> 
+
+         
+                <div class ="questionText-container" style="float: left; width: 90%;">
+                    <a class ="questionTitle displayBlock" href="/preguntas/<%= question.id %>" > <%= question.title %></a>
+
+                    
+                    <a class= "questionBody displayBlock"> <%= question.body.substr(0, 150) %>
+                                                          <% if (question.body.length > 150) { %>
+                                                                ... 
+                                                             <% } %>  </a>
+
+
+                    
+                        <a class="questionTags displayBlock" href="/preguntas/" > xd </a>
+                        
+                 
+     
+                   
+                </div>
+                <div class = "questionProfile-Container" style="float: right; width: 10%;">
+                    
+                    <a class= "displayBlock" ><%= question.post_date %>  </a>
+                  
+                    <% if (question.image) { %>
+                        <img src="/images/<%=question.image %>" class="reduce">
+                        <% } else { %>
+                            <img src="/images/roberto.png" class="reduce">
+                            <% } %> 
+                     
+              
+                    <a class= "displayBlock" href="/profile.html"><%= question.user %>  </a>
+          
+                </div>  
+                <div>
+                    
+                </div>                             
+            
+</div>    
+
+            <% }); %>
+        <% } %>
+
+    
+    
+</body>
+
+</html>
+
+
+
+
+    
